@@ -1,0 +1,15 @@
+# Katz's zsh configuration for Mac OSX
+
+## Environment variable configuration 
+#
+# EDITOR (macvim)
+#
+export EDITOR=/Applications/MacVim.app/Contents/MacOS/Vim
+
+#
+# alias
+#
+alias vi='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
+alias vim='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
+
+alias tmux="tmuxx"
