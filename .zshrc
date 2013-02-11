@@ -35,6 +35,22 @@ case ${UID} in
     PROMPT="%{${fg[red]}%}%/%%%{${reset_color}%} "
     PROMPT2="%{${fg[red]}%}%_%%%{${reset_color}%} "
     SPROMPT="%{${fg[red]}%}%r is correct? [n,y,a,e]:%{${reset_color}%} "
+
+    # change color for vimode
+    function zle-line-init zle-keymap-select {
+        case $KEYMAP in
+            vicmd)
+                PROMPT="%{${fg[cyan]}%}%/%%%{${reset_color}%} "
+                ;;
+            main|viins)
+                PROMPT="%{${fg[red]}%}%/%%%{${reset_color}%} "
+                ;;
+        esac
+        zle reset-prompt
+    }
+    zle -N zle-line-init
+    zle -N zle-keymap-select
+
     [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] && 
         PROMPT="%{${fg[cyan]}%}$(echo ${HOST%%.*} | tr '[a-z]' '[A-Z]') ${PROMPT}"
     ;;
@@ -47,14 +63,18 @@ setopt auto_cd
 # auto directory pushd that you can get dirs list by cd -[tab]
 #
 setopt auto_pushd
+setopt pushd_ignore_dups
 
 # command correct edition before each completion attempt
 #
 setopt correct
+setopt correct_all
 
 # compacked complete list display
 #
 setopt list_packed
+setopt list_types
+setopt auto_list
 
 # no remove postfix slash of command line
 #
@@ -63,6 +83,12 @@ setopt noautoremoveslash
 # no beep sound when complete list displayed
 #
 setopt nolistbeep
+
+# other complitions
+#
+setopt magic_equal_subst
+setopt auto_param_keys
+setopt auto_param_slash
 
 
 ## Keybind configuration
@@ -74,6 +100,8 @@ bindkey -v
 bindkey "^[[1~" beginning-of-line # Home gets to line head
 bindkey "^[[4~" end-of-line # End gets to line end
 bindkey "^[[3~" delete-char # Del
+bindkey "^W" forward-word
+bindkey "^B" backward-word
 
 # historical backward/forward search with linehead string binded to ^P/^N
 #
