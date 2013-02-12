@@ -75,6 +75,7 @@ NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neocomplcache'
 
 NeoBundle 'Lokaltog/vim-powerline'
+NeoBundle 'altercation/vim-colors-solarized'
 
 filetype plugin on
 filetype indent on
@@ -88,4 +89,5 @@ let g:Powerline_symbols = 'fancy'
 "
 " for colors
 "
-colorscheme molokai
+set background=dark
+colorscheme solarized
