@@ -232,8 +232,11 @@ esac
 #
 case "${OSTYPE}" in
 darwin*)
-   [ -f ${HOME}/.zshrc.osx ] && source ${HOME}/.zshrc.osx
-   ;;
+    [ -f ${HOME}/.zshrc.osx ] && source ${HOME}/.zshrc.osx
+    ;;
+freebsd*)
+    [ -f ${HOME}/.zshrc.freebsd ] && source ${HOME}/.zshrc.freebsd
+    ;;
 esac
  
 [ -f ${HOME}/.zshrc.mine ] && source ${HOME}/.zshrc.mine
