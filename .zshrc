@@ -131,7 +131,7 @@ setopt share_history        # share command history data
 
 ## Completion configuration
 #
-fpath=(${HOME}/.zsh/functions/Completion ${fpath})
+fpath=(${HOME}/.zsh/functions/Completion /usr/local/share/zsh-completions ${fpath})
 autoload -Uz compinit
 compinit -u
 
