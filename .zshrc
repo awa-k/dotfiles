@@ -23,27 +23,28 @@ typeset -U path cdpath fpath manpath
 #
 # set prompt
 #
-autoload colors
+autoload -Uz colors
 colors
+setopt prompt_subst
 case ${UID} in
 0)
-    PROMPT="%{${fg[cyan]}%}$(echo ${HOST%%.*} | tr '[a-z]' '[A-Z]') %B%{${fg[red]}%}%/#%{${reset_color}%}%b "
+    PROMPT="%B%{${fg[cyan]}%}$(echo ${HOST%%.*} | tr '[a-z]' '[A-Z]') %{${fg[red]}%}%/#%{${reset_color}%}%b "
     PROMPT2="%B%{${fg[red]}%}%_#%{${reset_color}%}%b "
     SPROMPT="%B%{${fg[red]}%}%r is correct? [n,y,a,e]:%{${reset_color}%}%b "
     ;;
 *)
-    PROMPT="%{${fg[red]}%}%/%%%{${reset_color}%} "
-    PROMPT2="%{${fg[red]}%}%_%%%{${reset_color}%} "
-    SPROMPT="%{${fg[red]}%}%r is correct? [n,y,a,e]:%{${reset_color}%} "
+    PROMPT="%B%{${fg[red]}%}%n@%m%%%{${reset_color}%}%b "
+    PROMPT2="%B%{${fg[red]}%}%_%%%{${reset_color}%}%b "
+    SPROMPT="%B%{${fg[red]}%}%r is correct? [n,y,a,e]:%{${reset_color}%}%b "
 
     # change color for vimode
     function zle-line-init zle-keymap-select {
         case $KEYMAP in
             vicmd)
-                PROMPT="%{${fg[cyan]}%}%/%%%{${reset_color}%} "
+                PROMPT="%B%{${fg[cyan]}%}%n@%m%%%{${reset_color}%}%b "
                 ;;
             main|viins)
-                PROMPT="%{${fg[red]}%}%/%%%{${reset_color}%} "
+                PROMPT="%B%{${fg[red]}%}%n@%m%%%{${reset_color}%}%b "
                 ;;
         esac
         zle reset-prompt
@@ -52,7 +53,7 @@ case ${UID} in
     zle -N zle-keymap-select
 
     [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] && 
-        PROMPT="%{${fg[cyan]}%}$(echo ${HOST%%.*} | tr '[a-z]' '[A-Z]') ${PROMPT}"
+        PROMPT="%B%{${fg[cyan]}%}%b$(echo ${HOST%%.*} | tr '[a-z]' '[A-Z]') ${PROMPT}"
     ;;
 esac
 
@@ -105,7 +106,7 @@ bindkey "^B" backward-word
 
 # historical backward/forward search with linehead string binded to ^P/^N
 #
-autoload history-search-end
+autoload -Uz history-search-end
 zle -N history-beginning-search-backward-end history-search-end
 zle -N history-beginning-search-forward-end history-search-end
 bindkey "^p" history-beginning-search-backward-end
@@ -130,18 +131,18 @@ setopt share_history        # share command history data
 ## Completion configuration
 #
 fpath=(${HOME}/.zsh/functions/Completion ${fpath})
-autoload -U compinit
+autoload -Uz compinit
 compinit -u
 
 
 ## zsh editor
 #
-autoload zed
+autoload -Uz zed
 
 
 ## Prediction configuration
 #
-#autoload predict-on
+#autoload -Uz predict-on
 #predict-off
 
 
@@ -239,5 +240,6 @@ freebsd*)
     ;;
 esac
  
+[ -f ${HOME}/.zshrc.vcs ] && source ${HOME}/.zshrc.vcs
 [ -f ${HOME}/.zshrc.mine ] && source ${HOME}/.zshrc.mine
 
