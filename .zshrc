@@ -28,24 +28,24 @@ colors
 setopt prompt_subst
 case ${UID} in
 0)
-    PROMPT="%B%{${fg[cyan]}%}$(echo ${HOST%%.*} | tr '[a-z]' '[A-Z]') %{${fg[red]}%}%~#%{${reset_color}%}%b "
-    PROMPT2="%B%{${fg[red]}%}%_#%{${reset_color}%}%b "
-    SPROMPT="%B%{${fg[red]}%}%r is correct? [n,y,a,e]:%{${reset_color}%}%b "
+    PROMPT="%6F$(echo ${HOST%%.*} | tr '[a-z]' '[A-Z]') %1F%~#%f "
+    PROMPT2="%1F%_#%f "
+    SPROMPT="%3F%r is correct? [n,y,a,e]:%f "
     ;;
 *)
-    PROMPT="%B%{${fg[red]}%}%n%%%{${reset_color}%}%b "
-    PROMPT2="%B%{${fg[red]}%}%_%%%{${reset_color}%}%b "
-    SPROMPT="%B%{${fg[red]}%}%r is correct? [n,y,a,e]:%{${reset_color}%}%b "
+    PROMPT="%1F%n%%%f "
+    PROMPT2="%1F%_%%%f "
+    SPROMPT="%3F%r is correct? [n,y,a,e]:%f "
     RPROMPT="%3F[%(4~,%-1~/.../%2~,%~)]%f"
 
     # change color for vimode
     function zle-line-init zle-keymap-select {
         case $KEYMAP in
             vicmd)
-                PROMPT="%B%{${fg[cyan]}%}%n%%%{${reset_color}%}%b "
+                PROMPT="%5F%n%%%f "
                 ;;
             main|viins)
-                PROMPT="%B%{${fg[red]}%}%n%%%{${reset_color}%}%b "
+                PROMPT="%1F%n%%%f "
                 ;;
         esac
         zle reset-prompt
@@ -54,7 +54,7 @@ case ${UID} in
     zle -N zle-keymap-select
 
     [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] && 
-        PROMPT="%B%{${fg[cyan]}%}%b$(echo ${HOST%%.*} | tr '[a-z]' '[A-Z]') ${PROMPT}"
+        PROMPT="%6F$(echo ${HOST%%.*} | tr '[a-z]' '[A-Z]') ${PROMPT}"
     ;;
 esac
 
@@ -177,27 +177,16 @@ alias su="su -l"
 
 ## terminal configuration
 #
-#case "${TERM}" in
-#screen)
-#    TERM=xterm
-#    ;;
-#esac
 
 case "${TERM}" in
 xterm|xterm-color|xterm-256color|screen)
-    #export LSCOLORS=exfxcxdxbxegedabagacad
     export LSCOLORS=ExFxCxdxBxegedabagacad
-    #export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
-    #export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34'
     export LS_COLORS='di=01;34:ln=01;35:so=01;32:ex=01;31:bd=46;34:cd=43;34'
     zstyle ':completion:*' list-colors 'di=34' 'ln=35' 'so=32' 'ex=31' 'bd=46;34' 'cd=43;34'
     ;;
 kterm-color)
     stty erase '^H'
-    #export LSCOLORS=exfxcxdxbxegedabagacad
     export LSCOLORS=ExFxCxdxBxegedabagacad
-    #export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
-    #export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34'
     export LS_COLORS='di=01;34:ln=01;35:so=01;32:ex=01;31:bd=46;34:cd=43;34'
     zstyle ':completion:*' list-colors 'di=34' 'ln=35' 'so=32' 'ex=31' 'bd=46;34' 'cd=43;34'
     ;;
@@ -207,13 +196,11 @@ kterm)
 cons25)
     unset LANG
     export LSCOLORS=ExFxCxdxBxegedabagacad
-#    export LS_COLORS='di=01;34:ln=01;35:so=01;32:ex=01;31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
     export LS_COLORS='di=01;34:ln=01;35:so=01;32:ex=01;31:bd=46;34:cd=43;34'
     zstyle ':completion:*' list-colors 'di=;34;1' 'ln=;35;1' 'so=;32;1' 'ex=31;1' 'bd=46;34' 'cd=43;34'
     ;;
 jfbterm-color)
     export LSCOLORS=gxFxCxdxBxegedabagacad
-#    export LS_COLORS='di=01;36:ln=01;35:so=01;32:ex=01;31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
     export LS_COLORS='di=01;36:ln=01;35:so=01;32:ex=01;31:bd=46;34:cd=43;34'
     zstyle ':completion:*' list-colors 'di=;36;1' 'ln=;35;1' 'so=;32;1' 'ex=31;1' 'bd=46;34' 'cd=43;34'
     ;;
