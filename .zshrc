@@ -36,6 +36,7 @@ case ${UID} in
     PROMPT="%B%{${fg[red]}%}%n%%%{${reset_color}%}%b "
     PROMPT2="%B%{${fg[red]}%}%_%%%{${reset_color}%}%b "
     SPROMPT="%B%{${fg[red]}%}%r is correct? [n,y,a,e]:%{${reset_color}%}%b "
+    RPROMPT="%3F[%(4~,%-1~/.../%2~,%~)]%f"
 
     # change color for vimode
     function zle-line-init zle-keymap-select {
