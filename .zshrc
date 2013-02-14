@@ -28,12 +28,12 @@ colors
 setopt prompt_subst
 case ${UID} in
 0)
-    PROMPT="%B%{${fg[cyan]}%}$(echo ${HOST%%.*} | tr '[a-z]' '[A-Z]') %{${fg[red]}%}%/#%{${reset_color}%}%b "
+    PROMPT="%B%{${fg[cyan]}%}$(echo ${HOST%%.*} | tr '[a-z]' '[A-Z]') %{${fg[red]}%}%~#%{${reset_color}%}%b "
     PROMPT2="%B%{${fg[red]}%}%_#%{${reset_color}%}%b "
     SPROMPT="%B%{${fg[red]}%}%r is correct? [n,y,a,e]:%{${reset_color}%}%b "
     ;;
 *)
-    PROMPT="%B%{${fg[red]}%}%n@%m%%%{${reset_color}%}%b "
+    PROMPT="%B%{${fg[red]}%}%n%%%{${reset_color}%}%b "
     PROMPT2="%B%{${fg[red]}%}%_%%%{${reset_color}%}%b "
     SPROMPT="%B%{${fg[red]}%}%r is correct? [n,y,a,e]:%{${reset_color}%}%b "
 
@@ -41,10 +41,10 @@ case ${UID} in
     function zle-line-init zle-keymap-select {
         case $KEYMAP in
             vicmd)
-                PROMPT="%B%{${fg[cyan]}%}%n@%m%%%{${reset_color}%}%b "
+                PROMPT="%B%{${fg[cyan]}%}%n%%%{${reset_color}%}%b "
                 ;;
             main|viins)
-                PROMPT="%B%{${fg[red]}%}%n@%m%%%{${reset_color}%}%b "
+                PROMPT="%B%{${fg[red]}%}%n%%%{${reset_color}%}%b "
                 ;;
         esac
         zle reset-prompt
