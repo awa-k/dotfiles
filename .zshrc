@@ -43,9 +43,13 @@ case ${UID} in
         case $KEYMAP in
             vicmd)
                 PROMPT="%5F%n%%%f "
+                [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] && 
+                    PROMPT="%6F$(echo ${HOST%%.*} | tr '[a-z]' '[A-Z]') ${PROMPT}"
                 ;;
             main|viins)
                 PROMPT="%1F%n%%%f "
+                [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] && 
+                    PROMPT="%6F$(echo ${HOST%%.*} | tr '[a-z]' '[A-Z]') ${PROMPT}"
                 ;;
         esac
         zle reset-prompt
