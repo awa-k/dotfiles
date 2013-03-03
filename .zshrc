@@ -14,7 +14,7 @@ esac
 #
 # PATH
 #
-export PATH=${HOME}/bin:$PATH
+export PATH=${HOME}/bin:$PATH:/usr/local/sbin
 # no duplicate
 typeset -U path cdpath fpath manpath
 
