@@ -69,14 +69,14 @@ if has('vim_starting')
     call neobundle#rc(expand('~/.vim/bundle'))
 endif
 
-NeoBundle 'Shougo/neobundle.vim'
-NeoBundle 'Shougo/vimproc'
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'Shougo/neocomplcache'
-NeoBundle 'Shougo/vimshell'
+NeoBundle 'https://github.com/Shougo/neobundle.vim.git'
+NeoBundle 'https://github.com/Shougo/vimproc.git'
+NeoBundle 'https://github.com/Shougo/unite.vim.git'
+NeoBundle 'https://github.com/Shougo/neocomplcache.git'
+NeoBundle 'https://github.com/Shougo/vimshell.git'
 
-NeoBundle 'Lokaltog/vim-powerline'
-NeoBundle 'altercation/vim-colors-solarized'
+NeoBundle 'https://github.com/Lokaltog/vim-powerline.git'
+NeoBundle 'https://github.com/altercation/vim-colors-solarized.git'
 
 filetype plugin on
 filetype indent on
