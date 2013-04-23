@@ -234,4 +234,5 @@ esac
  
 [ -f ${HOME}/.zshrc.vcs ] && source ${HOME}/.zshrc.vcs
 [ -f ${HOME}/.zshrc.mine ] && source ${HOME}/.zshrc.mine
+[ -f ${HOME}/.zshrc.local ] && source ${HOME}/.zshrc.local
 
