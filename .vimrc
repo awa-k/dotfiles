@@ -78,7 +78,16 @@ NeoBundle 'https://github.com/Shougo/vimshell.git'
 "NeoBundle 'https://github.com/Lokaltog/vim-powerline.git'
 NeoBundle 'https://github.com/alpaca-tc/alpaca_powertabline.git'
 NeoBundle 'https://github.com/Lokaltog/powerline.git', { 'rtp' : 'powerline/bindings/vim' }
-NeoBundle 'https://github.com/altercation/vim-colors-solarized.git'
+"NeoBundle 'https://github.com/altercation/vim-colors-solarized.git'
+NeoBundle 'nanotech/jellybeans.vim'
+NeoBundle 'w0ng/vim-hybrid'
+NeoBundle 'vim-scripts/twilight'
+NeoBundle 'jonathanfilip/vim-lucius'
+NeoBundle 'jpo/vim-railscasts-theme'
+NeoBundle 'altercation/vim-colors-solarized'
+NeoBundle 'vim-scripts/Wombat'
+NeoBundle 'tomasr/molokai'
+NeoBundle 'vim-scripts/rdark'
 
 filetype plugin on
 filetype indent on
@@ -87,10 +96,10 @@ filetype indent on
 " for vim-powerline
 "
 set t_Co=256
-let g:Powerline_symbols = 'fancy'
+"let g:Powerline_symbols = 'fancy'
 
 "
 " for colors
 "
 set background=dark
-colorscheme solarized
+colorscheme hybrid
