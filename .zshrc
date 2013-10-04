@@ -232,6 +232,10 @@ darwin*)
 freebsd*)
     [ -f ${HOME}/dotfiles/.zshrc.freebsd ] && source ${HOME}/dotfiles/.zshrc.freebsd
     ;;
+linux*)
+    [ -f ${HOME}/dotfiles/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] && \
+        source ${HOME}/dotfiles/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+    ;;
 esac
  
 [ -f ${HOME}/dotfiles/.zshrc.vcs ] && source ${HOME}/dotfiles/.zshrc.vcs
