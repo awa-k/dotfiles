@@ -225,16 +225,16 @@ esac
 #
 case "${OSTYPE}" in
 darwin*)
-    [ -f ${HOME}/.zshrc.osx ] && source ${HOME}/.zshrc.osx
+    [ -f ${HOME}/dotfiles/.zshrc.osx ] && source ${HOME}/dotfiles/.zshrc.osx
     [ -f /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] && \
         source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
     ;;
 freebsd*)
-    [ -f ${HOME}/.zshrc.freebsd ] && source ${HOME}/.zshrc.freebsd
+    [ -f ${HOME}/dotfiles/.zshrc.freebsd ] && source ${HOME}/dotfiles/.zshrc.freebsd
     ;;
 esac
  
-[ -f ${HOME}/.zshrc.vcs ] && source ${HOME}/.zshrc.vcs
+[ -f ${HOME}/dotfiles/.zshrc.vcs ] && source ${HOME}/dotfiles/.zshrc.vcs
 [ -f ${HOME}/.zshrc.mine ] && source ${HOME}/.zshrc.mine
 [ -f ${HOME}/.zshrc.local ] && source ${HOME}/.zshrc.local
 
