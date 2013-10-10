@@ -1,8 +1,12 @@
+@CHARSET "UTF=8";
+* {
+    font-family: "MeiryoKe_UIGothic";
+}
 body {
-    font-family: "Hiragino Kaku Gothic ProN";
+    font-family: "MeiryoKe_UIGothic" !important;
     font-size: 14px;
 }
 pre, code {
-    font-family: "MeiryoKe_Gothic";
+    font-family: "MeiryoKe_Console" !important;
     font-size: 11px;
 }
