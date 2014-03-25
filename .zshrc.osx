@@ -7,6 +7,11 @@
 export EDITOR=/Applications/MacVim.app/Contents/MacOS/Vim
 
 #
+# brewed python module
+#  for pyenv, disable this
+#export PYTHONPATH=/usr/local/lib/python2.7/site-packages
+
+#
 # alias
 #
 alias vi='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
@@ -33,3 +38,5 @@ google () {
     fi
     open -a Google\ Chrome http://www.google.co.jp/$opt
 }
+
+export PATH=$PATH:/usr/local/bin:/usr/local/sbin:/usr/sbin:/sbin

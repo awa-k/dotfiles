@@ -69,14 +69,16 @@ if has('vim_starting')
     call neobundle#rc(expand('~/.vim/bundle'))
 endif
 
-NeoBundle 'https://github.com/Shougo/neobundle.vim.git'
-NeoBundle 'https://github.com/Shougo/vimproc.git'
-NeoBundle 'https://github.com/Shougo/unite.vim.git'
-NeoBundle 'https://github.com/Shougo/neocomplcache.git'
-NeoBundle 'https://github.com/Shougo/vimshell.git'
+NeoBundle 'Shougo/neobundle.vim.git'
+NeoBundle 'Shougo/vimproc.git'
+NeoBundle 'Shougo/unite.vim.git'
+NeoBundle 'Shougo/neocomplcache.git'
+NeoBundle 'Shougo/vimshell.git'
 
-NeoBundle 'https://github.com/alpaca-tc/alpaca_powertabline.git'
-NeoBundle 'https://github.com/Lokaltog/powerline.git', { 'rtp' : 'powerline/bindings/vim' }
+NeoBundle 'alpaca-tc/alpaca_powertabline.git'
+NeoBundle 'Lokaltog/powerline.git', { 'rtp' : 'powerline/bindings/vim' }
+
+NeoBundle 'yuratomo/w3m.vim'
 
 NeoBundle 'nanotech/jellybeans.vim'
 NeoBundle 'w0ng/vim-hybrid'
@@ -102,3 +104,8 @@ let g:Powerline_symbols = 'fancy'
 "
 set background=dark
 colorscheme hybrid
+
+"
+" use vimshell
+"
+"let g:vimproc_dll_path = $VIMRUNTIME.'/autoload/vimproc_mac.so'
