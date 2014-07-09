@@ -1,15 +1,9 @@
 # Katz's zsh configuration for Mac OSX
 
-## Environment variable configuration 
 #
 # EDITOR (macvim)
 #
 export EDITOR=/Applications/MacVim.app/Contents/MacOS/Vim
-
-#
-# brewed python module
-#  for pyenv, disable this
-#export PYTHONPATH=/usr/local/lib/python2.7/site-packages
 
 #
 # alias
@@ -39,4 +33,5 @@ google () {
     open -a Google\ Chrome http://www.google.co.jp/$opt
 }
 
-export PATH=$PATH:/usr/local/bin:/usr/local/sbin:/usr/sbin:/sbin
+export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:${HOME}/bin
+export JAVA_HOME=`/usr/libexec/java_home`

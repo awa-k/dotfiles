@@ -1,111 +1,167 @@
 "
-" Katz's vimrc
+" vimrc
 "
 
+augroup MyCmd
+    autocmd!
+augroup END
 "
-" set options
-"
-set notitle
 set nocompatible
-set autoindent
-set smartindent
-set nobackup
-set noswapfile
-set clipboard+=unnamed
-set backspace=2
-set title
+
+" backup etc.
+set backupdir=~/.vim-backup
+set directory=~/.vim-backup
+set undodir=~/.vim-backup
+
+" view
+set antialias
+set colorcolumn=80
+set cursorline
+set display=uhex
+set hlsearch
+set incsearch
+set infercase
+set laststatus=2
+set list
+set listchars=tab:»-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
+set matchpairs+=<:>
+set matchtime=3
+set modeline
+set notitle
+set nowrap
 set number
 set ruler
-set laststatus=2
-set antialias
-set showmatch
-set nolist
-set showmode
 set showcmd
-set display=uhex
-set wildmenu
-set nowrap
-set expandtab
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
-set noincsearch
-set wrapscan
-set ignorecase
+set showmatch
+set showmode
 set smartcase
-set hlsearch
-set cursorline
+set virtualedit=all
+set wildmenu
 
-"
-" autocmd options
-"
+" layout
+set noautoindent
+set backspace=indent,eol,start
+set expandtab
+set shiftround
+set shiftwidth=4
+set smartindent
+set smarttab
+set softtabstop=4
+set tabstop=4
+
+" env
+"set autochdir
+set autoread
+set ignorecase
+
+" buffer
+if has('unnamedplus')
+    set clipboard& clipboard+=unnamedplus unnamed
+else
+    set clipboard& clipboard+=unnamed
+endif
+
+set hidden
+set switchbuf=useopen
+
+" auto escape
+cnoremap <expr> / getcmdtype() == '/' ? '\/' : '/'
+cnoremap <expr> ? getcmdtype() == '?' ? '\?' : '?'
+
+" cursorline
 autocmd WinEnter * setl cursorline
 autocmd WinLeave * setl nocursorline
 
-"
 " other options
-"
 syntax enable
 
 "
-" encoding
-"
-set encoding=utf-8
-set fenc=utf-8
-set fencs=iso-2022-jp,euc-jp,cp932
-if &encoding !=# 'utf-8'
-    set encoding=japan
-    set fileencoding=japan
-endif
-
-"
-" plugins
+" neobundle base
 "
 filetype off
 
 if has('vim_starting')
-    set runtimepath+=~/.vim/bundle/neobundle.vim
-
-    call neobundle#rc(expand('~/.vim/bundle'))
+    set nocompatible
+    set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
 
-NeoBundle 'Shougo/neobundle.vim.git'
-NeoBundle 'Shougo/vimproc.git'
-NeoBundle 'Shougo/unite.vim.git'
-NeoBundle 'Shougo/neocomplcache.git'
-NeoBundle 'Shougo/vimshell.git'
+call neobundle#begin(expand('~/.vim/bundle/'))
 
-NeoBundle 'alpaca-tc/alpaca_powertabline.git'
-NeoBundle 'Lokaltog/powerline.git', { 'rtp' : 'powerline/bindings/vim' }
+NeoBundleFetch 'Shougo/neobundle.vim'
 
-NeoBundle 'yuratomo/w3m.vim'
+" plug-ins from Shougo
+NeoBundle 'Shougo/vimproc.vim', {
+            \ 'build': {
+            \ 'mac':'make -f make_mac.mak',
+            \ }}
+NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/vimfiler.vim'
+NeoBundle 'Shougo/vimshell.vim'
+NeoBundle 'Shougo/neocomplete.vim'
+NeoBundle 'Shougo/neosnippet.vim'
+NeoBundle 'Shougo/neosnippet-snippets'
 
-NeoBundle 'nanotech/jellybeans.vim'
+" themes
 NeoBundle 'w0ng/vim-hybrid'
-NeoBundle 'vim-scripts/twilight'
-NeoBundle 'jonathanfilip/vim-lucius'
-NeoBundle 'jpo/vim-railscasts-theme'
-NeoBundle 'altercation/vim-colors-solarized'
-NeoBundle 'vim-scripts/Wombat'
-NeoBundle 'tomasr/molokai'
-NeoBundle 'vim-scripts/rdark'
 
-filetype plugin on
-filetype indent on
+" powerline
+NeoBundle 'alpaca-tc/alpaca_powertabline'
+NeoBundle 'Lokaltog/powerline', {
+            \ 'rtp' : 'powerline/bindings/vim' }
+
+" snippets
+NeoBundle 'scrooloose/syntastic'
+NeoBundle 'honza/vim-snippets'
+NeoBundle 'godlygeek/tabular'
+
+" git
+NeoBundle 'tpope/vim-fugitive'
+
+" puppet
+NeoBundle 'rodjek/vim-puppet'
+
+call neobundle#end()
+
+filetype plugin indent on
+
+NeoBundleCheck
 
 "
-" for vim-powerline
-"
-set t_Co=256
-let g:Powerline_symbols = 'fancy'
-
-"
-" for colors
+" color theme
 "
 set background=dark
 colorscheme hybrid
 
 "
-" use vimshell
+" snippets
 "
-"let g:vimproc_dll_path = $VIMRUNTIME.'/autoload/vimproc_mac.so'
+" Plugin key-mappings.
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>     <Plug>(neosnippet_expand_target)
+
+" SuperTab like snippets behavior.
+imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+\ "\<Plug>(neosnippet_expand_or_jump)"
+\: pumvisible() ? "\<C-n>" : "\<TAB>"
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+\ "\<Plug>(neosnippet_expand_or_jump)"
+\: "\<TAB>"
+
+" For snippet_complete marker.
+if has('conceal')
+  set conceallevel=2 concealcursor=i
+endif
+
+" Enable vimfiler on startup
+let g:vimfiler_as_default_explorer = 1
+" Enable neocomplete on startup
+let g:neocomplete#enable_at_startup = 1
+
+" Enable snipMate compatibility feature.
+let g:neosnippet#enable_snipmate_compatibility = 1
+" Tell Neosnippet about the other snippets
+let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
+" Enable syntastic
+let g:syntastic_enable_signs = 1
+let g:syntastic_auto_loc_list = 1
