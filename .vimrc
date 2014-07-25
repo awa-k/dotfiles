@@ -5,6 +5,11 @@
 augroup MyCmd
     autocmd!
 augroup END
+
+augroup PrevimSettings
+    autocmd!
+    autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
+augroup END
 "
 set nocompatible
 
@@ -123,6 +128,12 @@ NeoBundle 'rodjek/vim-puppet'
 " shaberu
 NeoBundle 'supermomonga/shaberu.vim'
 
+" markdown
+NeoBundle 'kannokanno/previm'
+
+" open-browser
+NeoBundle 'tyru/open-browser.vim'
+
 call neobundle#end()
 
 filetype plugin indent on
@@ -168,3 +179,5 @@ let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
 " Enable syntastic
 let g:syntastic_enable_signs = 1
 let g:syntastic_auto_loc_list = 1
+" Enable previm
+"let g:previm_open_cmd = '/usr/bin/open -a Chrome'
