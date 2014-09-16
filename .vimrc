@@ -38,13 +38,14 @@ set number
 set ruler
 set showcmd
 set showmatch
-set showmode
+set noshowmode
 set smartcase
 set virtualedit=all
 set wildmenu
 
 " layout
-set noautoindent
+set ambiwidth=double
+set autoindent
 set backspace=indent,eol,start
 set expandtab
 set shiftround
@@ -144,6 +145,7 @@ NeoBundleCheck
 " color theme
 "
 set background=dark
+let g:hybrid_use_iTerm_colors = 1
 colorscheme hybrid
 
 "
