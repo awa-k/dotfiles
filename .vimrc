@@ -99,6 +99,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'Shougo/vimproc.vim', {
             \ 'build': {
             \ 'mac':'make -f make_mac.mak',
+            \ 'unix':'gmake',
             \ }}
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/vimfiler.vim'
