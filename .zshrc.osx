@@ -20,6 +20,7 @@ export JAVA_HOME=`/usr/libexec/java_home`
 
 # pyenv
 if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
+if which pyenv-virtualenv > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
 # rbenv
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 # golang
