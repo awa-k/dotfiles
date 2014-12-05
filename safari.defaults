@@ -1,4 +1,26 @@
-defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2StandardFontFamily "NotoSansCJKjp-Regular"
+/* Message body */
+div.ii>div {
+    font-family: "MeiryoKe_Console" !important;
+    font-size: 100% !important;
+    line-height: 120% !important;
+width: 80ex !important;
+}
+
+/* Send form (current version) */
+div.At>textarea.Ak {
+    font-family: "MeiryoKe_Console" !important;
+    font-size: 100% !important;
+    line-height: 120% !important;
+}
+
+/* Send form (new version) */
+div.Am.Al.editable.LW-avf {
+    font-family: "MeiryoKe_Console" !important;
+    font-size: 100% !important;
+    line-height: 120% !important;
+}
+
+defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2StandardFontFamily NotoSansCJKjp-Regular
 defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2DefaultFontSize -int 14
-defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2FixedFontFamily "MeiryoKe_Console"
+defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2FixedFontFamily MeiryoKe_Console
 defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2DefaultFixedFontSize -int 12
