@@ -1,3 +1,4 @@
+run-shell "powerline-daemon -q"
 source ~/.vim/bundle/powerline/powerline/bindings/tmux/powerline.conf
 set-window-option -g mode-mouse on
 
