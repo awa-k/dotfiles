@@ -1,6 +1,6 @@
 /* Message body */
 div.ii>div {
-    font-family: "MeiryoKe_Console" !important;
+    font-family: "GenJyuuGothic-Monospace-Regular" !important;
     font-size: 100% !important;
     line-height: 120% !important;
 width: 80ex !important;
@@ -8,14 +8,14 @@ width: 80ex !important;
 
 /* Send form (current version) */
 div.At>textarea.Ak {
-    font-family: "MeiryoKe_Console" !important;
+    font-family: "GenJyuuGothic-Monospace-Regular" !important;
     font-size: 100% !important;
     line-height: 120% !important;
 }
 
 /* Send form (new version) */
 div.Am.Al.editable.LW-avf {
-    font-family: "MeiryoKe_Console" !important;
+    font-family: "GenJyuuGothic-Monospace-Regular" !important;
     font-size: 100% !important;
     line-height: 120% !important;
 }
