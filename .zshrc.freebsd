@@ -12,3 +12,9 @@ export PAGER=/usr/local/bin/lv
 #
 alias vi='env LANG=ja_JP.UTF-8 /usr/local/bin/vim "$@"'
 alias vim='env LANG=ja_JP.UTF-8 /usr/local/bin/vim "$@"'
+
+#
+# envs
+#
+export GOPATH=${HOME}/go
+export PATH=${PATH}:${GOPATH}/bin
