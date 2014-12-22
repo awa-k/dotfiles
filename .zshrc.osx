@@ -3,7 +3,7 @@ export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:${HOME}/bi
 
 # pager
 export PAGER=/usr/local/bin/lv
-export LV='-c'
+export LV='-c -Ou8'
 
 # macvim
 export EDITOR=/Applications/MacVim.app/Contents/MacOS/Vim
