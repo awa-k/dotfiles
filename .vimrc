@@ -116,6 +116,7 @@ NeoBundle 'w0ng/vim-hybrid'
 " NeoBundle 'Lokaltog/powerline', {
 "            \ 'rtp' : 'powerline/bindings/vim' }
 NeoBundle 'itchyny/lightline.vim'
+" NeoBundle 'itchyny/landscape.vim'
 
 " snippets
 NeoBundle 'scrooloose/syntastic'
@@ -188,7 +189,7 @@ let g:syntastic_auto_loc_list = 1
 
 " lightline color
 let g:lightline = {
-      \ 'colorscheme': 'solarized',
+      \ 'colorscheme': 'jellybeans',
       \ 'mode_map': {'c': 'NORMAL'},
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ] ]
