@@ -125,6 +125,7 @@ NeoBundle 'godlygeek/tabular'
 
 " git
 NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'airblade/vim-gitgutter'
 
 " puppet
 NeoBundle 'rodjek/vim-puppet'
