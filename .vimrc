@@ -113,9 +113,11 @@ NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'w0ng/vim-hybrid'
 
 " powerline
-NeoBundle 'alpaca-tc/alpaca_powertabline'
-NeoBundle 'Lokaltog/powerline', {
-            \ 'rtp' : 'powerline/bindings/vim' }
+" NeoBundle 'alpaca-tc/alpaca_powertabline'
+" NeoBundle 'Lokaltog/powerline', {
+"            \ 'rtp' : 'powerline/bindings/vim' }
+NeoBundle 'itchyny/lightline.vim'
+" NeoBundle 'itchyny/landscape.vim'
 
 " snippets
 NeoBundle 'scrooloose/syntastic'
@@ -124,6 +126,7 @@ NeoBundle 'godlygeek/tabular'
 
 " git
 NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'airblade/vim-gitgutter'
 
 " puppet
 NeoBundle 'rodjek/vim-puppet'
@@ -185,3 +188,65 @@ let g:syntastic_enable_signs = 1
 let g:syntastic_auto_loc_list = 1
 " Enable previm
 "let g:previm_open_cmd = '/usr/bin/open -a Chrome'
+
+" lightline color
+let g:lightline = {
+      \ 'colorscheme': 'jellybeans',
+      \ 'mode_map': {'c': 'NORMAL'},
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ] ]
+      \ },
+      \ 'component_function': {
+      \   'modified': 'MyModified',
+      \   'readonly': 'MyReadonly',
+      \   'fugitive': 'MyFugitive',
+      \   'filename': 'MyFilename',
+      \   'fileformat': 'MyFileformat',
+      \   'filetype': 'MyFiletype',
+      \   'fileencoding': 'MyFileencoding',
+      \   'mode': 'MyMode'
+      \ }
+      \ }
+
+function! MyModified()
+    return &ft =~ 'help\|vimfiler\|gundo' ? '' : &modified ? '+' : &modifiable ? '' : '-'
+endfunction
+
+function! MyReadonly()
+    return &ft !~? 'help\|vimfiler\|gundo' && &readonly ? 'x' : ''
+endfunction
+
+function! MyFilename()
+    return ('' != MyReadonly() ? MyReadonly() . ' ' : '') .
+                \ (&ft == 'vimfiler' ? vimfiler#get_status_string() :
+                \  &ft == 'unite' ? unite#get_status_string() :
+                \  &ft == 'vimshell' ? vimshell#get_status_string() :
+                \ '' != expand('%:t') ? expand('%:t') : '[No Name]') .
+                \ ('' != MyModified() ? ' ' . MyModified() : '')
+endfunction
+
+function! MyFugitive()
+    try
+        if &ft !~? 'vimfiler\|gundo' && exists('*fugitive#head')
+            return fugitive#head()
+        endif
+    catch
+    endtry
+    return ''
+endfunction
+
+function! MyFileformat()
+    return winwidth(0) > 70 ? &fileformat : ''
+endfunction
+
+function! MyFiletype()
+    return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype : 'no ft') : ''
+endfunction
+
+function! MyFileencoding()
+    return winwidth(0) > 70 ? (strlen(&fenc) ? &fenc : &enc) : ''
+endfunction
+
+function! MyMode()
+    return winwidth(0) > 60 ? lightline#mode() : ''
+endfunction

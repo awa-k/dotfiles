@@ -2,13 +2,26 @@
 
 ## Environment variable configuration 
 #
+#
+#
+export LANG=ja_JP.UTF-8
+
+#
 # EDITOR (vim from ports)
 #
 export EDITOR=/usr/local/bin/vim
 export PAGER=/usr/local/bin/lv
+export LV='-c -Ou8'
+alias jman='env LANG=ja_JP.eucJP jman'
 
 #
 # alias
 #
 alias vi='env LANG=ja_JP.UTF-8 /usr/local/bin/vim "$@"'
 alias vim='env LANG=ja_JP.UTF-8 /usr/local/bin/vim "$@"'
+
+#
+# envs
+#
+export GOPATH=${HOME}/go
+export PATH=${PATH}:${GOPATH}/bin
