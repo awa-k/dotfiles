@@ -122,6 +122,7 @@ NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'honza/vim-snippets'
 NeoBundle 'godlygeek/tabular'
+NeoBundle 'fatih/vim-go'
 
 " git
 NeoBundle 'tpope/vim-fugitive'
