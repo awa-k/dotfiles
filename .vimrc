@@ -251,3 +251,5 @@ endfunction
 function! MyMode()
     return winwidth(0) > 60 ? lightline#mode() : ''
 endfunction
+
+" vim: set ft=vim:
