@@ -19,6 +19,7 @@ alias jman='env LANG=ja_JP.eucJP jman'
 #
 alias vi='env LANG=ja_JP.UTF-8 /usr/local/bin/vim "$@"'
 alias vim='env LANG=ja_JP.UTF-8 /usr/local/bin/vim "$@"'
+alias vimdiff='env LANG=ja_JP.UTF-8 /usr/local/bin/vimdiff "$@"'
 
 #
 # envs
