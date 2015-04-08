@@ -119,11 +119,18 @@ NeoBundle 'w0ng/vim-hybrid'
 NeoBundle 'itchyny/lightline.vim'
 " NeoBundle 'itchyny/landscape.vim'
 
-" snippets
+" snippets & templates
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'honza/vim-snippets'
 NeoBundle 'godlygeek/tabular'
+NeoBundle 'mattn/sonictemplate-vim'
+
+" golang
 NeoBundle 'fatih/vim-go'
+NeoBundle 'majutsushi/tagbar'
+NeoBundle 'rjohnsondev/vim-compiler-go'
+NeoBundle 'dgryski/vim-godef'
+NeoBundle 'vim-jp/vim-go-extra'
 
 " git
 NeoBundle 'tpope/vim-fugitive'
