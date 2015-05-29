@@ -126,10 +126,11 @@ NeoBundle 'godlygeek/tabular'
 NeoBundle 'mattn/sonictemplate-vim'
 
 " golang
-NeoBundle 'fatih/vim-go'
+"NeoBundle 'fatih/vim-go'
 NeoBundle 'majutsushi/tagbar'
 NeoBundle 'rjohnsondev/vim-compiler-go'
 NeoBundle 'dgryski/vim-godef'
+NeoBundle 'google/vim-ft-go'
 NeoBundle 'vim-jp/vim-go-extra'
 
 " git
@@ -259,4 +260,8 @@ function! MyMode()
     return winwidth(0) > 60 ? lightline#mode() : ''
 endfunction
 
+" golang
+autocmd FileType go autocmd BufWritePre <buffer> Fmt
+exe "set rtp+=".globpath($GOPATH, "src/github.com/nsf/gocode/vim")
+set completeopt=menu,preview
 " vim: set ft=vim:
