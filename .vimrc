@@ -1,123 +1,35 @@
-"
-" vimrc
-"
+if 0 | endif
 
-augroup MyCmd
-    autocmd!
-augroup END
-
-augroup PrevimSettings
-    autocmd!
-    autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
-augroup END
-"
-set nocompatible
-
-" backup etc.
-set backupdir=~/.vim-backup
-set directory=~/.vim-backup
-set undodir=~/.vim-backup
-
-" view
-set antialias
-set colorcolumn=80
-set cursorline
-set display=uhex
-set hlsearch
-set incsearch
-set infercase
-set laststatus=2
-set list
-set listchars=tab:»-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
-set matchpairs+=<:>
-set matchtime=3
-set modeline
-set notitle
-set nowrap
-set number
-set ruler
-set showcmd
-set showmatch
-set noshowmode
-set smartcase
-set virtualedit=all
-set wildmenu
-
-" layout
-set ambiwidth=double
-set autoindent
-set backspace=indent,eol,start
-set expandtab
-set shiftround
-set shiftwidth=4
-set smartindent
-set smarttab
-set softtabstop=4
-set tabstop=4
-
-" env
-"set autochdir
-set autoread
-set ignorecase
-
-" buffer
-if has('unnamedplus')
-    set clipboard& clipboard+=unnamedplus unnamed
-else
-    set clipboard& clipboard+=unnamed
-endif
-
-set hidden
-set switchbuf=useopen
-
-" auto escape
-cnoremap <expr> / getcmdtype() == '/' ? '\/' : '/'
-cnoremap <expr> ? getcmdtype() == '?' ? '\?' : '?'
-
-" cursorline
-autocmd WinEnter * setl cursorline
-autocmd WinLeave * setl nocursorline
-
-" other options
-syntax enable
-
-"
-" neobundle base
-"
-filetype off
-
+" NeoBundle
 if has('vim_starting')
-    set nocompatible
+    if &compatible
+        set nocompatible
+    endif
     set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
-
 call neobundle#begin(expand('~/.vim/bundle/'))
-
 NeoBundleFetch 'Shougo/neobundle.vim'
-
-" plug-ins from Shougo
+" Shougo's plugin
 NeoBundle 'Shougo/vimproc.vim', {
-            \ 'build': {
-            \ 'mac':'make -f make_mac.mak',
-            \ 'linux':'make',
-            \ 'unix':'gmake',
-            \ }}
+    \ 'build': {
+        \ 'unix':'gmake',
+        \ 'mac':'make -f make_mac.mak',
+        \ 'linux':'make',
+    \ }}
 NeoBundle 'Shougo/unite.vim'
-NeoBundle 'Shougo/vimfiler.vim'
 NeoBundle 'Shougo/vimshell.vim'
+NeoBundle 'Shougo/vimfiler.vim'
 NeoBundle 'Shougo/neocomplete.vim'
 NeoBundle 'Shougo/neosnippet.vim'
 NeoBundle 'Shougo/neosnippet-snippets'
 
-" themes
+" themes & powerline
 NeoBundle 'w0ng/vim-hybrid'
-
-" powerline
-" NeoBundle 'alpaca-tc/alpaca_powertabline'
-" NeoBundle 'Lokaltog/powerline', {
-"            \ 'rtp' : 'powerline/bindings/vim' }
 NeoBundle 'itchyny/lightline.vim'
-" NeoBundle 'itchyny/landscape.vim'
+
+" git (& required by lightline)
+NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'airblade/vim-gitgutter'
 
 " snippets & templates
 NeoBundle 'scrooloose/syntastic'
@@ -128,42 +40,132 @@ NeoBundle 'mattn/sonictemplate-vim'
 " golang
 NeoBundle 'fatih/vim-go'
 NeoBundle 'majutsushi/tagbar'
-NeoBundle 'rjohnsondev/vim-compiler-go'
-NeoBundle 'dgryski/vim-godef'
-NeoBundle 'vim-jp/vim-go-extra'
-
-" git
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'airblade/vim-gitgutter'
 
 " puppet
 NeoBundle 'rodjek/vim-puppet'
 
-" shaberu
-NeoBundle 'supermomonga/shaberu.vim'
-
 " markdown
 NeoBundle 'kannokanno/previm'
-
-" open-browser
 NeoBundle 'tyru/open-browser.vim'
 
 call neobundle#end()
-
 filetype plugin indent on
-
 NeoBundleCheck
 
-"
-" color theme
-"
+" Shougo's settings
+let g:vimfiler_as_default_explorer = 1
+let g:neocomplete#enable_at_startup = 1
+
+" themes & powerline
 set background=dark
-let g:hybrid_use_iTerm_colors = 1
+let g:hybrid_use_Xresources = 1
 colorscheme hybrid
 
-"
-" snippets
-"
+let g:gitgutter_sign_added = 'a' 
+let g:gitgutter_sign_modified = 'm'
+let g:gitgutter_sign_removed = 'r'
+
+let g:lightline = {
+    \ 'colorscheme': 'jellybeans',
+    \ 'mode_map': {'c': 'NORMAL'},
+    \ 'active': {
+    \   'left': [
+    \     ['mode', 'paste'],
+    \     ['fugitive', 'gitgutter', 'filename'],
+    \   ],
+    \   'right': [
+    \     ['lineinfo', 'syntastic'],
+    \     ['percent'],
+    \     ['fileformat', 'fileencoding', 'filetype'],
+    \   ],
+    \ },
+    \ 'component_function': {
+    \   'mode': 'MyMode',
+    \   'modified': 'MyModified',
+    \   'readonly': 'MyReadonly',
+    \   'fugitive': 'MyFugitive',
+    \   'gitgutter': 'MyGitgutter',
+    \   'filename': 'MyFilename',
+    \   'syntastic': 'SyntasticStatuslineFlag',
+    \   'fileformat': 'MyFileformat',
+    \   'fileencoding': 'MyFileencoding',
+    \   'filetype': 'MyFiletype',
+    \ },
+    \ 'separator': { 'left': '', 'right': '' },
+    \ 'subseparator': { 'left': '', 'right': '' }
+    \ }
+
+function! MyMode()
+    return winwidth('.') > 60 ? lightline#mode() : ''
+endfunction
+
+function! MyModified()
+    return &ft =~ 'help\|vimfiler\|gundo' ? '' : &modified ? '+' : &modifiable ? '' : '-'
+endfunction
+
+function! MyReadonly()
+    return &ft !~? 'help\|vimfiler\|gundo' && &ro ? 'x' : ''
+endfunction
+
+function! MyFugitive()
+    try
+        if &ft !~? 'vimfiler\|gundo' && exists('*fugitive#head')
+            return fugitive#head()
+        endif
+    catch
+    endtry
+    return ''
+endfunction
+
+function! MyGitgutter()
+    if ! exists('*GitGutterGetHunkSummary')
+                \ || ! get(g:, 'gitgutter_enabled', 0)
+                \ || winwidth('.') <= 90
+        return ''
+    endif
+    let symbols = [
+        \ g:gitgutter_sign_added . ' ',
+        \ g:gitgutter_sign_modified . ' ',
+        \ g:gitgutter_sign_removed . ' '
+        \ ]
+    let hunks = GitGutterGetHunkSummary()
+    let ret = []
+    for i in [0, 1, 2]
+        if hunks[i] > 0
+            call add(ret, symbols[i] . hunks[i])
+        endif
+    endfor
+    return join(ret, ' ')
+endfunction
+
+function! MyFilename()
+    return ('' != MyReadonly() ? MyReadonly() . ' ' : '') .
+        \ (&ft == 'vimfiler' ? vimfiler#get_status_string() :
+        \  &ft == 'unite' ? unite#get_status_string() :
+        \  &ft == 'vimshell' ? substitute(b:vimshell.current_dir,expand('~'),'~','') :
+        \  '' != expand('%:t') ? expand('%:t') : '[No Name]') .
+        \ ('' != MyModified() ? ' ' . MyModified() : '')
+endfunction
+
+function! MyFileformat()
+    return winwidth('.') > 70 ? &fileformat : ''
+endfunction
+
+function! MyFileencoding()
+    return winwidth('.') > 70 ? (strlen(&fenc) ? &fenc : &enc) : ''
+endfunction
+
+function! MyFiletype()
+    return winwidth('.') > 70 ? (strlen(&filetype) ? &filetype : 'no ft') : ''
+endfunction
+
+" snippets, etc.
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_enable_signs = 1
+
 " Plugin key-mappings.
 imap <C-k>     <Plug>(neosnippet_expand_or_jump)
 smap <C-k>     <Plug>(neosnippet_expand_or_jump)
@@ -179,84 +181,78 @@ smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
 
 " For snippet_complete marker.
 if has('conceal')
-  set conceallevel=2 concealcursor=i
+  set conceallevel=2 concealcursor=niv
 endif
 
-" Enable vimfiler on startup
-let g:vimfiler_as_default_explorer = 1
-" Enable neocomplete on startup
-let g:neocomplete#enable_at_startup = 1
-
-" Enable snipMate compatibility feature.
 let g:neosnippet#enable_snipmate_compatibility = 1
-" Tell Neosnippet about the other snippets
-let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
-" Enable syntastic
-let g:syntastic_enable_signs = 1
-let g:syntastic_auto_loc_list = 1
-" Enable previm
-"let g:previm_open_cmd = '/usr/bin/open -a Chrome'
+let g:neosnippet#snippets_directory ='~/.vim/bundle/vim-snippets/snippets'
 
-" lightline color
-let g:lightline = {
-      \ 'colorscheme': 'jellybeans',
-      \ 'mode_map': {'c': 'NORMAL'},
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ] ]
-      \ },
-      \ 'component_function': {
-      \   'modified': 'MyModified',
-      \   'readonly': 'MyReadonly',
-      \   'fugitive': 'MyFugitive',
-      \   'filename': 'MyFilename',
-      \   'fileformat': 'MyFileformat',
-      \   'filetype': 'MyFiletype',
-      \   'fileencoding': 'MyFileencoding',
-      \   'mode': 'MyMode'
-      \ }
-      \ }
+" auto escape key-mappings.
+cnoremap <expr> / getcmdtype() == '/' ? '\/' : '/'
+cnoremap <expr> ? getcmdtype() == '?' ? '\?' : '?'
 
-function! MyModified()
-    return &ft =~ 'help\|vimfiler\|gundo' ? '' : &modified ? '+' : &modifiable ? '' : '-'
-endfunction
+" markdown
+augroup PrevimSettings
+    autocmd!
+    autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
+augroup END
 
-function! MyReadonly()
-    return &ft !~? 'help\|vimfiler\|gundo' && &readonly ? 'x' : ''
-endfunction
+syntax enable
 
-function! MyFilename()
-    return ('' != MyReadonly() ? MyReadonly() . ' ' : '') .
-                \ (&ft == 'vimfiler' ? vimfiler#get_status_string() :
-                \  &ft == 'unite' ? unite#get_status_string() :
-                \  &ft == 'vimshell' ? vimshell#get_status_string() :
-                \ '' != expand('%:t') ? expand('%:t') : '[No Name]') .
-                \ ('' != MyModified() ? ' ' . MyModified() : '')
-endfunction
+" backup, etc.
+set backupdir=~/.vim-backup
+set undodir=~/.vim-backup
+set nowritebackup
+set nobackup
+set noswapfile
 
-function! MyFugitive()
-    try
-        if &ft !~? 'vimfiler\|gundo' && exists('*fugitive#head')
-            return fugitive#head()
-        endif
-    catch
-    endtry
-    return ''
-endfunction
+" buffer
+if has('unnamedplus')
+    set clipboard& clipboard+=unnamedplus unnamed
+else
+    set clipboard& clipboard+=unnamed
+endif
 
-function! MyFileformat()
-    return winwidth(0) > 70 ? &fileformat : ''
-endfunction
+" layout
+set ambiwidth=double
+set backspace=indent,eol,start
+set autoindent
+set expandtab
+set shiftround
+set shiftwidth=4
+set smartindent
+set smarttab
+set softtabstop=4
+set tabstop=4
 
-function! MyFiletype()
-    return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype : 'no ft') : ''
-endfunction
-
-function! MyFileencoding()
-    return winwidth(0) > 70 ? (strlen(&fenc) ? &fenc : &enc) : ''
-endfunction
-
-function! MyMode()
-    return winwidth(0) > 60 ? lightline#mode() : ''
-endfunction
+" view
+set antialias
+set autoread
+set colorcolumn=80
+set cursorline
+set display=lastline,uhex
+set hidden
+set hlsearch
+set ignorecase
+set incsearch
+set infercase
+set laststatus=2
+set list
+set listchars=eol:↲,tab:»-,trail:-,extends:»,precedes:«,nbsp:%
+set matchpairs+=<:>
+set matchtime=5
+set modeline
+set number
+set ruler
+set showcmd
+set showmatch
+set noshowmode
+set smartcase
+set switchbuf=useopen
+set notitle
+set nowrap
+set virtualedit=all
+set visualbell
+set wildmenu
 
 " vim: set ft=vim:
