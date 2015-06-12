@@ -187,9 +187,13 @@ endif
 let g:neosnippet#enable_snipmate_compatibility = 1
 let g:neosnippet#snippets_directory ='~/.vim/bundle/vim-snippets/snippets'
 
-" auto escape key-mappings.
+" key-mappings.
+" auto escape
 cnoremap <expr> / getcmdtype() == '/' ? '\/' : '/'
 cnoremap <expr> ? getcmdtype() == '?' ? '\?' : '?'
+
+" nohlsearch
+nmap <silent> <Esc><Esc> :nohlsearch<CR>
 
 " markdown
 augroup PrevimSettings
