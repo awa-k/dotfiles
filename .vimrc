@@ -84,8 +84,8 @@ let g:lightline = {
     \   'fileencoding': 'MyFileencoding',
     \   'filetype': 'MyFiletype',
     \ },
-    \ 'separator': { 'left': '', 'right': '' },
-    \ 'subseparator': { 'left': '|', 'right': '|' }
+    \ 'separator': { 'left': "\ue0b0", 'right': "\ue0b2" },
+    \ 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" }
     \ }
 
 function! MyMode()
@@ -97,12 +97,13 @@ function! MyModified()
 endfunction
 
 function! MyReadonly()
-    return &ft !~? 'help\|vimfiler\|gundo' && &readonly ? 'x' : ''
+    return &ft !~? 'help\|vimfiler\|gundo' && &readonly ? "\ue0a2" : ''
 endfunction
 
 function! MyFugitive()
     if &ft !~? 'vimfiler\|gundo' && exists('*fugitive#head')
-        return fugitive#head()
+        let _ = fugitive#head()
+        return strlen(_) ? "\ue0a0"._ : ''
     endif
     return ''
 endfunction
@@ -132,7 +133,7 @@ endfunction
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+let g:syntastic_check_on_wq = 1
 let g:syntastic_enable_signs = 1
 
 " Plugin key-mappings.
@@ -155,6 +156,13 @@ endif
 
 let g:neosnippet#enable_snipmate_compatibility = 1
 let g:neosnippet#snippets_directory ='~/.vim/bundle/vim-snippets/snippets'
+
+" golang
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
 
 " key-mappings.
 " auto escape
@@ -206,6 +214,7 @@ set tabstop=4
 
 " view
 set antialias
+set autochdir
 set autoread
 set colorcolumn=80
 set cursorline
