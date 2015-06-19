@@ -214,7 +214,7 @@ set tabstop=4
 
 " view
 set antialias
-set autochdir
+"set autochdir
 set autoread
 set colorcolumn=80
 set cursorline
