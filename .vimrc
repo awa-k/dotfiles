@@ -131,7 +131,7 @@ endfunction
 
 " snippets, etc.
 let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
+let g:syntastic_auto_loc_list = 2
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 1
 let g:syntastic_enable_signs = 1
@@ -217,6 +217,7 @@ set antialias
 "set autochdir
 set autoread
 set colorcolumn=80
+set completeopt=menu,preview
 set cursorline
 set display=lastline,uhex
 set hidden
