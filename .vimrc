@@ -158,11 +158,9 @@ let g:neosnippet#enable_snipmate_compatibility = 1
 let g:neosnippet#snippets_directory ='~/.vim/bundle/vim-snippets/snippets'
 
 " golang
-let g:go_highlight_functions = 1
-let g:go_highlight_methods = 1
-let g:go_highlight_structs = 1
-let g:go_highlight_operators = 1
-let g:go_highlight_build_constraints = 1
+if filereadable(expand('~/dotfiles/.vimrc_go'))
+    source ~/dotfiles/.vimrc_go
+endif
 
 " key-mappings.
 " auto escape
