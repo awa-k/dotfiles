@@ -1,0 +1,5 @@
+augroup VimErlang
+    autocmd!
+    autocmd BufNewFile,BufRead *.erl setfiletype erlang
+    autocmd FileType erlang setlocal errorformat=%f:%l:\ %m
+augroup END
