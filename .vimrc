@@ -44,6 +44,16 @@ NeoBundle 'mattn/sonictemplate-vim'
 " golang
 NeoBundle 'fatih/vim-go'
 
+" erlang
+NeoBundle 'vim-erlang/vim-erlang-runtime'
+NeoBundle 'vim-erlang/vim-erlang-tags'
+NeoBundle 'vim-erlang/vim-erlang-compiler'
+NeoBundle 'vim-erlang/vim-erlang-omnicomplete'
+NeoBundle 'vim-erlang/erlang-motions.vim'
+NeoBundle 'vim-erlang/vim-rebar'
+NeoBundle 'vim-erlang/vim-dialyzer'
+NeoBundle 'vim-erlang/vim-erlang-skeletons'
+
 " puppet
 NeoBundle 'rodjek/vim-puppet'
 
@@ -135,6 +145,17 @@ let g:syntastic_auto_loc_list = 2
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 1
 let g:syntastic_enable_signs = 1
+ 
+let g:neosnippet#enable_snipmate_compatibility = 1
+let g:neosnippet#snippets_directory ='~/.vim/bundle/vim-snippets/snippets'
+ 
+" For snippet_complete marker.
+if has('conceal')
+  set conceallevel=2 concealcursor=niv
+endif
+ 
+" omni
+imap <C-f> <C-x><C-o>
 
 " Plugin key-mappings.
 imap <C-k>     <Plug>(neosnippet_expand_or_jump)
@@ -149,19 +170,6 @@ smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
 \ "\<Plug>(neosnippet_expand_or_jump)"
 \: "\<TAB>"
 
-" For snippet_complete marker.
-if has('conceal')
-  set conceallevel=2 concealcursor=niv
-endif
-
-let g:neosnippet#enable_snipmate_compatibility = 1
-let g:neosnippet#snippets_directory ='~/.vim/bundle/vim-snippets/snippets'
-
-" golang
-if filereadable(expand('~/dotfiles/.vimrc_go'))
-    source ~/dotfiles/.vimrc_go
-endif
-
 " key-mappings.
 " auto escape
 cnoremap <expr> / getcmdtype() == '/' ? '\/' : '/'
@@ -170,6 +178,16 @@ cnoremap <expr> ? getcmdtype() == '?' ? '\?' : '?'
 " nohlsearch
 nmap <silent> <Esc><Esc> :nohlsearch<CR>
 
+" golang
+if filereadable(expand('~/dotfiles/.vimrc_go'))
+    source ~/dotfiles/.vimrc_go
+endif
+
+" erlang
+if filereadable(expand('~/dotfiles/.vimrc_erlang'))
+    source ~/dotfiles/.vimrc_erlang
+endif
+ 
 " markdown
 augroup PrevimSettings
     autocmd!
