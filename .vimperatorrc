@@ -15,4 +15,9 @@ set hintchars=asdfgqwertzxcvb
 
 source! /Users/k-awaiishima/.vimperatorrc.local
 
+autocmd LocationChange .*                             js modes.passAllKeys = false
+autocmd LocationChange mail\\.google\\.com            js modes.passAllKeys = true
+autocmd LocationChange docs\\.google\\.com            js modes.passAllKeys = true
+autocmd LocationChange www\\.google\\.com/calendar    js modes.passAllKeys = true
+
 " vim: set ft=vimperator:
