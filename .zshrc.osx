@@ -37,6 +37,10 @@ export PATH=${PATH}:${HOME}/.cabal/bin
 # custom function
 function chpwd() { ls }
 zstyle ':completion:*' list-colors 'di=34' 'ln=35' 'so=32' 'ex=31' 'bd=46;34' 'cd=43;34'
+
+function agvim() {
+vim $(ag $@ | peco --query "$LBUFFER" | awk -F : '{print "-c " $2 " " $1}')
+}
 # search by chrome
 google () {
     local str opt
