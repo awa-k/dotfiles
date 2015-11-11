@@ -236,6 +236,7 @@ set colorcolumn=80
 set completeopt=menu,preview
 set cursorline
 set display=lastline,uhex
+set grepprg=jvgrep
 set hidden
 set hlsearch
 set ignorecase
