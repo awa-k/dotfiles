@@ -61,6 +61,9 @@ NeoBundle 'rodjek/vim-puppet'
 NeoBundle 'kannokanno/previm'
 NeoBundle 'tyru/open-browser.vim'
 
+" cisco ios
+NeoBundle 'CyCoreSystems/vim-cisco-ios'
+
 call neobundle#end()
 filetype plugin indent on
 NeoBundleCheck
