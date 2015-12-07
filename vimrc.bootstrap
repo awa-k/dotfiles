@@ -86,7 +86,6 @@ NeoBundle 'tomasr/molokai'
 NeoBundle 'sherzberg/vim-bootstrap-updater'
 
 "" Custom bundles
-NeoBundle 'rodjek/vim-puppet'
 
 "" Python Bundle
 NeoBundle "davidhalter/jedi-vim"

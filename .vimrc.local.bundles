@@ -1,0 +1,9 @@
+"" puppet
+NeoBundle 'rodjek/vim-puppet'
+
+"" markdown
+NeoBundle 'kannokanno/previm'
+NeoBundle 'tyru/open-browser.vim'
+
+"" cisco iso
+NeoBundle 'CyCoreSystems/vim-cisco-ios'
