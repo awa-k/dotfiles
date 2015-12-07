@@ -1,0 +1,11 @@
+"" backup, etc
+set backupdir=~/.vim-backup
+set undodir=~/.vim-backup
+set nowritebackup
+set nobackup
+set noswapfile
+
+"" layout
+set ambiwidth=double
+set colorcolumn=80
+
