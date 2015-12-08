@@ -190,7 +190,7 @@ endif
 if filereadable(expand('~/dotfiles/.vimrc_erlang'))
     source ~/dotfiles/.vimrc_erlang
 endif
- 
+
 " markdown
 augroup PrevimSettings
     autocmd!

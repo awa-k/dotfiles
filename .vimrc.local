@@ -9,3 +9,9 @@ set noswapfile
 set ambiwidth=double
 set colorcolumn=80
 
+"" view
+set list
+set listchars=eol:↲,tab:»-,trail:-,extends:»,precedes:«,nbsp:%
+set matchpairs+=<:>
+set matchtime=5
+
