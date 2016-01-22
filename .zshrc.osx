@@ -23,8 +23,10 @@ export JAVA_HOME=`/usr/libexec/java_home`
     source /usr/local/share/zsh/site-functions/_aws
 
 # The next line updates PATH for the Google Cloud SDK.
-[ -f /usr/local/google-cloud-sdk/path.zsh.inc ] && \
-    source /usr/local/google-cloud-sdk/path.zsh.inc
+#[ -f /usr/local/google-cloud-sdk/path.zsh.inc ] && \
+#    source /usr/local/google-cloud-sdk/path.zsh.inc
+# PATH for the Google Cloud SDK, update manualliy
+export PATH=${PATH}:/usr/local/google-cloud-sdk/bin
 
 # The next line enables shell command completion for gcloud.
 [ -f /usr/local/google-cloud-sdk/completion.zsh.inc ] && \

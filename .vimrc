@@ -77,7 +77,7 @@ set background=dark
 let g:hybrid_use_Xresources = 1
 colorscheme hybrid
 
-let g:gitgutter_sign_added = 'a' 
+let g:gitgutter_sign_added = 'a'
 let g:gitgutter_sign_modified = 'm'
 let g:gitgutter_sign_removed = 'r'
 
@@ -123,8 +123,8 @@ endfunction
 
 function! MyFilename()
     return ('' != MyReadonly() ? MyReadonly() . ' ' : '') .
-          \ (&ft == 'vimfiler' ? vimfiler#get_status_string() : 
-          \  &ft == 'unite' ? unite#get_status_string() : 
+          \ (&ft == 'vimfiler' ? vimfiler#get_status_string() :
+          \  &ft == 'unite' ? unite#get_status_string() :
           \  &ft == 'vimshell' ? vimshell#get_status_string() :
           \ '' != expand('%:t') ? expand('%:t') : '[No Name]') .
           \ ('' != MyModified() ? ' ' . MyModified() : '')
@@ -148,15 +148,15 @@ let g:syntastic_auto_loc_list = 2
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 1
 let g:syntastic_enable_signs = 1
- 
+
 let g:neosnippet#enable_snipmate_compatibility = 1
 let g:neosnippet#snippets_directory ='~/.vim/bundle/vim-snippets/snippets'
- 
+
 " For snippet_complete marker.
 if has('conceal')
   set conceallevel=2 concealcursor=niv
 endif
- 
+
 " omni
 imap <C-f> <C-x><C-o>
 
