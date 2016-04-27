@@ -26,11 +26,15 @@ export JAVA_HOME=`/usr/libexec/java_home`
 #[ -f /usr/local/google-cloud-sdk/path.zsh.inc ] && \
 #    source /usr/local/google-cloud-sdk/path.zsh.inc
 # PATH for the Google Cloud SDK, update manualliy
-export PATH=${PATH}:/usr/local/google-cloud-sdk/bin
+export PATH=${PATH}:${HOME}/google-cloud-sdk/bin
 
 # The next line enables shell command completion for gcloud.
-[ -f /usr/local/google-cloud-sdk/completion.zsh.inc ] && \
-    source /usr/local/google-cloud-sdk/completion.zsh.inc
+[ -f ${HOME}/google-cloud-sdk/completion.zsh.inc ] && \
+    source ${HOME}/google-cloud-sdk/completion.zsh.inc
+
+# python
+[ -d $(brew --prefix)/lib/python2.7/site-packages ] && \
+    export PYTHONPATH=$(brew --prefix)/lib/python2.7/site-packages:${PYTHONPATH}
 
 # pyenv
 if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
