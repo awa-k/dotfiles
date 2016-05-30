@@ -33,8 +33,8 @@ export PATH=${PATH}:${HOME}/google-cloud-sdk/bin
     source ${HOME}/google-cloud-sdk/completion.zsh.inc
 
 # python
-[ -d $(brew --prefix)/lib/python2.7/site-packages ] && \
-    export PYTHONPATH=$(brew --prefix)/lib/python2.7/site-packages:${PYTHONPATH}
+#[ -d $(brew --prefix)/lib/python2.7/site-packages ] && \
+#    export PYTHONPATH=$(brew --prefix)/lib/python2.7/site-packages:${PYTHONPATH}
 
 # pyenv
 if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
@@ -63,7 +63,7 @@ google () {
     local str opt
     if [ $# != 0 ]; then
         for i in $*; do
-            str="$str${str:++}$i"
+        str="$str${str:++}$i"
         done
         opt='search?num=100'
         opt="${opt}&q=${str}"
