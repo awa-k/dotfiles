@@ -15,3 +15,5 @@ set listchars=eol:↲,tab:»-,trail:-,extends:»,precedes:«,nbsp:%
 set matchpairs+=<:>
 set matchtime=5
 
+let g:airline_powerline_fonts = 1
+
