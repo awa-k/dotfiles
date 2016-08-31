@@ -4,6 +4,7 @@ set undodir=~/.vim-backup
 set nowritebackup
 set nobackup
 set noswapfile
+set autowrite
 
 "" layout
 "set ambiwidth=double
