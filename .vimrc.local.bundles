@@ -7,3 +7,6 @@ NeoBundle 'tyru/open-browser.vim'
 
 "" cisco iso
 NeoBundle 'CyCoreSystems/vim-cisco-ios'
+
+"" golang
+NeoBundle "AndrewRadev/splitjoin.vim"
