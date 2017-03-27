@@ -1,3 +1,6 @@
+""utils
+Plug 'Shougo/neocomplete.vim'
+
 "" puppet
 Plug 'rodjek/vim-puppet'
 
@@ -10,3 +13,5 @@ Plug 'CyCoreSystems/vim-cisco-ios'
 
 "" golang
 Plug 'AndrewRadev/splitjoin.vim'
+" requre go get github.com/garyburd/go-explorer/src/getool
+Plug 'garyburd/go-explorer'
