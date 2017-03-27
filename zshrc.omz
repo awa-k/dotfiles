@@ -49,22 +49,22 @@ source $ZSH/oh-my-zsh.sh
 # Customize to your needs...
 case "${OSTYPE}" in
     darwin*)
-        [ -f ${HOME}/dotfiles/.zshrc.osx ] && \
-            source ${HOME}/dotfiles/.zshrc.osx
+        [ -f ${HOME}/dotfiles/zshrc.osx ] && \
+            source ${HOME}/dotfiles/zshrc.osx
         ;;
     freebsd*)
-        [ -f ${HOME}/dotfiles/.zshrc.freebsd ] && \
-            source ${HOME}/dotfiles/.zshrc.freebsd
+        [ -f ${HOME}/dotfiles/zshrc.freebsd ] && \
+            source ${HOME}/dotfiles/zshrc.freebsd
         ;;
     linux*)
-        [ -f ${HOME}/dotfiles/.zshrc.linux ] && \
-            source ${HOME}/dotfiles/.zshrc.linux
+        [ -f ${HOME}/dotfiles/zshrc.linux ] && \
+            source ${HOME}/dotfiles/zshrc.linux
         ;;
 esac
 
 [ -f ${HOME}/.zshrc.local ] && \
     source ${HOME}/.zshrc.local
 
-[ -f ${HOME}/dotfiles/.zshrc.keyopt ] && \
-    source ${HOME}/dotfiles/.zshrc.keyopt
+[ -f ${HOME}/dotfiles/zshrc.keyopt ] && \
+    source ${HOME}/dotfiles/zshrc.keyopt
 
