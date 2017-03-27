@@ -1,0 +1,12 @@
+"" puppet
+Plug 'rodjek/vim-puppet'
+
+"" markdown
+Plug 'kannokanno/previm'
+Plug 'tyru/open-browser.vim'
+
+"" cisco iso
+Plug 'CyCoreSystems/vim-cisco-ios'
+
+"" golang
+Plug "AndrewRadev/splitjoin.vim"
