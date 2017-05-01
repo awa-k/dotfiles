@@ -1,0 +1,40 @@
+# use zplug
+export ZPLUG_HOME=/usr/local/opt/zplug
+source ${ZPLUG_HOME}/init.zsh
+
+zplug 'zsh-users/zsh-autosuggestions'
+zplug 'zsh-users/zsh-completions'
+zplug 'zsh-users/zsh-syntax-highlighting'
+zplug 'mollifier/anyframe'
+
+zplug 'dracula/zsh', as:theme
+
+if ! zplug check --verbose; then
+    printf "Install? [y/N]: "
+    if read -q; then
+        echo; zplug install
+    fi
+fi
+
+zplug load --verbose
+# Customize to your needs...
+case "${OSTYPE}" in
+    darwin*)
+        [ -f ${HOME}/dotfiles/zshrc.osx ] && \
+            source ${HOME}/dotfiles/zshrc.osx
+        ;;
+    freebsd*)
+        [ -f ${HOME}/dotfiles/zshrc.freebsd ] && \
+            source ${HOME}/dotfiles/zshrc.freebsd
+        ;;
+    linux*)
+        [ -f ${HOME}/dotfiles/zshrc.linux ] && \
+            source ${HOME}/dotfiles/zshrc.linux
+        ;;
+esac
+
+[ -f ${HOME}/dotfiles/zshrc.keyopt ] && \
+    source ${HOME}/dotfiles/zshrc.keyopt
+
+[ -f ${HOME}/.zshrc.local ] && \
+    source ${HOME}/.zshrc.local
