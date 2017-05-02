@@ -1,25 +1,3 @@
-/* Message body */
-div.ii>div {
-    font-family: "rounded-mgenplus-1mn-regular" !important;
-    font-size: 100% !important;
-    line-height: 120% !important;
-width: 80ex !important;
-}
-
-/* Send form (current version) */
-div.At>textarea.Ak {
-    font-family: "rounded-mgenplus-1mn-regular" !important;
-    font-size: 100% !important;
-    line-height: 120% !important;
-}
-
-/* Send form (new version) */
-div.Am.Al.editable.LW-avf {
-    font-family: "rounded-mgenplus-1mn-regular" !important;
-    font-size: 100% !important;
-    line-height: 120% !important;
-}
-
 defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2StandardFontFamily TsukuARdGothic-Regular
 defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2DefaultFontSize -int 14
 defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2FixedFontFamily rounded-mgenplus-1mn-regular

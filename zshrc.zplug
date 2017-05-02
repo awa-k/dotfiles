@@ -7,7 +7,8 @@ zplug 'zsh-users/zsh-completions'
 zplug 'zsh-users/zsh-syntax-highlighting'
 zplug 'mollifier/anyframe'
 
-zplug 'dracula/zsh', as:theme
+#zplug 'dracula/zsh', as:theme
+zplug 'themes/takashiyoshida', from:oh-my-zsh, as:theme
 
 if ! zplug check --verbose; then
     printf "Install? [y/N]: "

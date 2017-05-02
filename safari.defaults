@@ -1,26 +1,4 @@
-/* Message body */
-div.ii>div {
-    font-family: "rounded-mgenplus-1mn-regular" !important;
-    font-size: 100% !important;
-    line-height: 120% !important;
-width: 80ex !important;
-}
-
-/* Send form (current version) */
-div.At>textarea.Ak {
-    font-family: "rounded-mgenplus-1mn-regular" !important;
-    font-size: 100% !important;
-    line-height: 120% !important;
-}
-
-/* Send form (new version) */
-div.Am.Al.editable.LW-avf {
-    font-family: "rounded-mgenplus-1mn-regular" !important;
-    font-size: 100% !important;
-    line-height: 120% !important;
-}
-
-defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2StandardFontFamily rounded-mgenplus-1cp-regular
-defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2DefaultFontSize -int 14
-defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2FixedFontFamily rounded-mgenplus-1mn-regular
-defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2DefaultFixedFontSize -int 12
+defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2StandardFontFamily mgenplus-1cp-regular
+defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2DefaultFontSize -int 16
+defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2FixedFontFamily mgenplus-1mn-regular
+defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2DefaultFixedFontSize -int 14

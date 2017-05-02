@@ -1,12 +1,21 @@
-@CHARSET "UTF=8";
-* {
-    font-family: "MeiryoKe_Console" !important;
+/* Message body */
+div.ii>div {
+    font-family: "mgenplus-1mn-regular" !important;
+    font-size: 100% !important;
+    line-height: 120% !important;
+width: 80ex !important;
 }
-body {
-    font-family: "MeiryoKe_Console" !important;
-    font-size: 13px;
+
+/* Send form (current version) */
+div.At>textarea.Ak {
+    font-family: "mgenplus-1mn-regular" !important;
+    font-size: 100% !important;
+    line-height: 120% !important;
 }
-pre, code {
-    font-family: "MeiryoKe_Console" !important;
-    font-size: 12px;
+
+/* Send form (new version) */
+div.Am.Al.editable.LW-avf {
+    font-family: "mgenplus-1mn-regular" !important;
+    font-size: 100% !important;
+    line-height: 120% !important;
 }
