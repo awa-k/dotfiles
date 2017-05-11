@@ -39,6 +39,9 @@ export PATH=${PATH}:${HOME}/google-cloud-sdk/bin
 [ -f ${HOME}/google-cloud-sdk/completion.zsh.inc ] && \
     source ${HOME}/google-cloud-sdk/completion.zsh.inc
 
+# direnv
+if which direnv > /dev/null; then eval "$(direnv hook zsh)"; fi
+
 # pyenv
 if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
 if which pyenv-virtualenv > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
@@ -67,6 +70,7 @@ google () {
     open -a Google\ Chrome http://www.google.co.jp/$opt
 }
 
+# thefuck
 alias fuck='eval $(thefuck $(fc -ln -1 | tail -n 1)); fc -R'
 
 export XDG_CONFIG_HOME=${HOME}/.config
