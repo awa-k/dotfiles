@@ -9,7 +9,8 @@ Plug 'kannokanno/previm'
 Plug 'tyru/open-browser.vim'
 
 "" cisco iso
-Plug 'CyCoreSystems/vim-cisco-ios'
+"Plug 'CyCoreSystems/vim-cisco-ios'
+Plug 'momota/cisco.vim'
 
 "" golang
 Plug 'AndrewRadev/splitjoin.vim'
