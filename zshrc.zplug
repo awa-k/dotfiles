@@ -1,5 +1,16 @@
 # use zplug
-export ZPLUG_HOME=/usr/local/opt/zplug
+case "${OSTYPE}" in
+    darwin*)
+        export ZPLUG_HOME=/usr/local/opt/zplug
+        ;;
+    freebsd*)
+        export ZPLUG_HOME=${HOME}/.zplug
+        ;;
+    linux*)
+        export ZPLUG_HOME=${HOME}/.zplug
+        ;;
+esac
+
 source ${ZPLUG_HOME}/init.zsh
 
 zplug 'zsh-users/zsh-autosuggestions'
