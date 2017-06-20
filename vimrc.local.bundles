@@ -4,6 +4,9 @@ Plug 'Shougo/neocomplete.vim'
 "" puppet
 Plug 'rodjek/vim-puppet'
 
+"" terraform
+Plug 'hashivim/vim-terraform'
+
 "" markdown
 Plug 'kannokanno/previm'
 Plug 'tyru/open-browser.vim'

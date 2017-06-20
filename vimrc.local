@@ -21,3 +21,6 @@ let g:airline_powerline_fonts = 1
 let g:go_metalinter_autosave = 1
 let g:go_auto_type_info = 1
 let g:go_auto_sameids = 1
+
+"" vim-terraform
+let g:terraform_align = 1
