@@ -8,6 +8,7 @@ export EDITOR=/usr/bin/vim
 export PAGER=/usr/bin/lv
 export LV='-c'
 
+alias ls='ls --color'
 #
 # alias
 #
@@ -16,7 +17,7 @@ alias vim='env LANG=ja_JP.UTF-8 /usr/bin/vim "$@"'
 alias vimdiff='env LANG=ja_JP.UTF-8 /usr/bin/vimdiff "$@"'
 
 # envs
-export GOPATH=${HOME}/go
+export GOPATH=${HOME}/codes/go
 export PATH=${PATH}:${GOPATH}/bin
 
 # aws (on arch)
