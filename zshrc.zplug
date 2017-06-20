@@ -4,7 +4,7 @@ case "${OSTYPE}" in
         export ZPLUG_HOME=/usr/local/opt/zplug
         ;;
     freebsd*)
-        export ZPLUG_HOME=${HOME}/.zplug
+        export ZPLUG_HOME=/usr/local/opt/zplug
         ;;
     linux*)
         export ZPLUG_HOME=${HOME}/.zplug
