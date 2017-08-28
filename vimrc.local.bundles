@@ -18,4 +18,4 @@ Plug 'momota/cisco.vim'
 "" golang
 Plug 'AndrewRadev/splitjoin.vim'
 " requre go get github.com/garyburd/go-explorer/src/getool
-Plug 'garyburd/go-explorer'
+"Plug 'garyburd/go-explorer'
