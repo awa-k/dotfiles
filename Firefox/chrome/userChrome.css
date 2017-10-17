@@ -1,0 +1,6 @@
+#tabbrowser-tabs {
+    visibility: collapse !important;
+}
+#TabsToolbar {
+    height: 27px !important;
+}
