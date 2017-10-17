@@ -1,7 +1,8 @@
 # use zplug
 case "${OSTYPE}" in
     darwin*)
-        export ZPLUG_HOME=/usr/local/opt/zplug
+        #export ZPLUG_HOME=/usr/local/opt/zplug
+        export ZPLUG_HOME=${HOME}/.zplug
         ;;
     freebsd*)
         export ZPLUG_HOME=/usr/local/opt/zplug
