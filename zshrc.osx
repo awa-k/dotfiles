@@ -36,6 +36,14 @@ export JAVA_HOME=`/usr/libexec/java_home`
 [ -f ${ZSH_FUNCTIONS}/_aws ] && \
     source ${ZSH_FUNCTIONS}/_aws
 
+# docker
+[ -f ${ZSH_FUNCTIONS}/_docker ] && \
+    source ${ZSH_FUNCTIONS}/_docker
+[ -f ${ZSH_FUNCTIONS}/_docker-compose ] && \
+    source ${ZSH_FUNCTIONS}/_docker-compose
+[ -f ${ZSH_FUNCTIONS}/_docker-machine ] && \
+    source ${ZSH_FUNCTIONS}/_docker-machine
+
 # PATH for the Google Cloud SDK, update manualliy
 export PATH=${PATH}:${HOME}/google-cloud-sdk/bin
 
