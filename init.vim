@@ -53,9 +53,9 @@ else
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
   Plug 'junegunn/fzf.vim'
 endif
-let g:make = 'gmake'
-if exists('make')
-        let g:make = 'make'
+let g:make = 'make'
+if exists('gmake')
+        let g:make = 'gmake'
 endif
 Plug 'Shougo/vimproc.vim', {'do': g:make}
 
