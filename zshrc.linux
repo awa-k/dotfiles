@@ -12,9 +12,9 @@ alias ls='ls --color'
 #
 # alias
 #
-alias vi='env LANG=ja_JP.UTF-8 /usr/bin/vim "$@"'
-alias vim='env LANG=ja_JP.UTF-8 /usr/bin/vim "$@"'
-alias vimdiff='env LANG=ja_JP.UTF-8 /usr/bin/vimdiff "$@"'
+alias vi='env LANG=ja_JP.UTF-8 /usr/bin/vim'
+alias vim='env LANG=ja_JP.UTF-8 /usr/bin/vim'
+alias vimdiff='env LANG=ja_JP.UTF-8 /usr/bin/vimdiff'
 
 # envs
 export GOPATH=${HOME}/codes/go

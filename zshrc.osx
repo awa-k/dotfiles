@@ -11,22 +11,25 @@ export LSCOLORS=Gxfxcxdxbxegedabagacad
 alias ls='ls -G'
 
 # macvim
-#export EDITOR=/Applications/MacVim.app/Contents/MacOS/Vim
-#alias vi='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
-#alias vim='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
-#alias vimdiff='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/vimdiff "$@"'
-#alias ctags='/Applications/MacVim.app/Contents/MacOS/ctags "$@"'
+if [ -f /Applications/MacVim.app/Contents/MacOS/Vim ]; then
+    export EDITOR=/Applications/MacVim.app/Contents/MacOS/Vim
+    alias vi='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim'
+    alias vim='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim'
+    alias vimdiff='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/vimdiff'
+    alias ctags='/Applications/MacVim.app/Contents/MacOS/ctags'
+fi
 
 # neovim
-export EDITOR=/usr/local/bin/nvim
-alias vi='env LANG=ja_JP.UTF-8 /usr/local/bin/nvim "$@"'
-alias vim='env LANG=ja_JP.UTF-8 /usr/local/bin/nvim "$@"'
-alias vimdiff='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/vimdiff "$@"'
-alias ctags='/usr/local/bin/ctags "$@"'
+if which nvim > /dev/null; then
+    export EDITOR=/usr/local/bin/nvim
+    alias vi='env LANG=ja_JP.UTF-8 /usr/local/bin/nvim'
+    alias vim='env LANG=ja_JP.UTF-8 /usr/local/bin/nvim'
+    alias ctags='/usr/local/bin/ctags'
+fi
 
 # curl
 [ -f /usr/local/opt/curl/bin/curl ] && \
-    alias curl='/usr/local/opt/curl/bin/curl "$@"'
+    alias curl='/usr/local/opt/curl/bin/curl'
 
 # java
 export JAVA_HOME=`/usr/libexec/java_home`
@@ -87,6 +90,11 @@ google () {
         opt="${opt}&q=${str}"
     fi
     open -a Google\ Chrome http://www.google.co.jp/$opt
+}
+
+# ag + peco
+function agvim () {
+    vim $(ag $@ | peco --query "$LBUFFER" | awk -F : '{print "+" $2 " " $1}')
 }
 
 # thefuck
