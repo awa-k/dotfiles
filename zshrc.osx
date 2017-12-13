@@ -11,11 +11,18 @@ export LSCOLORS=Gxfxcxdxbxegedabagacad
 alias ls='ls -G'
 
 # macvim
-export EDITOR=/Applications/MacVim.app/Contents/MacOS/Vim
-alias vi='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
-alias vim='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
+#export EDITOR=/Applications/MacVim.app/Contents/MacOS/Vim
+#alias vi='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
+#alias vim='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
+#alias vimdiff='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/vimdiff "$@"'
+#alias ctags='/Applications/MacVim.app/Contents/MacOS/ctags "$@"'
+
+# neovim
+export EDITOR=/usr/local/bin/nvim
+alias vi='env LANG=ja_JP.UTF-8 /usr/local/bin/nvim "$@"'
+alias vim='env LANG=ja_JP.UTF-8 /usr/local/bin/nvim "$@"'
 alias vimdiff='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/vimdiff "$@"'
-alias ctags='/Applications/MacVim.app/Contents/MacOS/ctags "$@"'
+alias ctags='/usr/local/bin/ctags "$@"'
 
 # curl
 [ -f /usr/local/opt/curl/bin/curl ] && \
