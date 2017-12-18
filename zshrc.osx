@@ -71,6 +71,9 @@ if which pyenv-virtualenv > /dev/null; then eval "$(pyenv virtualenv-init -)"; f
 # rbenv
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
+# ndenv
+if which ndenv > /dev/null; then eval "$(ndenv init -)"; fi
+
 # golang
 export GOPATH=${HOME}/codes/go
 export PATH=${PATH}:${GOPATH}/bin
