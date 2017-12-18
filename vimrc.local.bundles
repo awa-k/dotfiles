@@ -26,3 +26,6 @@ Plug 'momota/cisco.vim'
 Plug 'AndrewRadev/splitjoin.vim'
 " requre go get github.com/garyburd/go-explorer/src/getool
 "Plug 'garyburd/go-explorer'
+
+"" node
+Plug 'kchmck/vim-coffee-script'
