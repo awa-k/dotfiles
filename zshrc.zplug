@@ -1,16 +1,5 @@
 # use zplug
-case "${OSTYPE}" in
-    darwin*)
-        export ZPLUG_HOME=${HOME}/.zplug
-        ;;
-    freebsd*)
-        export ZPLUG_HOME=/usr/local/opt/zplug
-        ;;
-    linux*)
-        export ZPLUG_HOME=${HOME}/.zplug
-        ;;
-esac
-
+export ZPLUG_HOME=${HOME}/.zplug
 source ${ZPLUG_HOME}/init.zsh
 
 zplug 'zsh-users/zsh-autosuggestions'
@@ -18,7 +7,6 @@ zplug 'zsh-users/zsh-completions'
 zplug 'zsh-users/zsh-syntax-highlighting'
 zplug 'mollifier/anyframe'
 
-#zplug 'dracula/zsh', as:theme
 zplug 'themes/takashiyoshida', from:oh-my-zsh, as:theme
 
 if ! zplug check --verbose; then
