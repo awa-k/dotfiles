@@ -9,7 +9,7 @@ export LANG=ja_JP.UTF-8
 #
 # EDITOR (vim from ports)
 #
-export EDITOR=/usr/local/bin/vim
+export EDITOR=/usr/local/bin/nvim
 export PAGER=/usr/local/bin/lv
 export LV='-c -Ou8'
 alias jman='env LANG=ja_JP.eucJP jman'
@@ -17,8 +17,8 @@ alias jman='env LANG=ja_JP.eucJP jman'
 #
 # alias
 #
-alias vi='env LANG=ja_JP.UTF-8 /usr/local/bin/vim'
-alias vim='env LANG=ja_JP.UTF-8 /usr/local/bin/vim'
+alias vi='env LANG=ja_JP.UTF-8 /usr/local/bin/nvim'
+alias vim='env LANG=ja_JP.UTF-8 /usr/local/bin/nvim'
 alias vimdiff='env LANG=ja_JP.UTF-8 /usr/local/bin/vimdiff'
 
 #
@@ -27,6 +27,10 @@ alias vimdiff='env LANG=ja_JP.UTF-8 /usr/local/bin/vimdiff'
 #export GOROOT=/usr/local/go
 export GOPATH=${HOME}/codes/go
 export PATH=${PATH}:${GOPATH}/bin
+
+# venv
+[ -f ${HOME}/venv/bin/activate ] && \
+    source ${HOME}/venv/bin/activate
 
 # aws
 [ -f /usr/local/bin/aws_zsh_completer.sh ] && \

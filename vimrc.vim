@@ -53,9 +53,11 @@ else
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
   Plug 'junegunn/fzf.vim'
 endif
-let g:make = 'make'
-if exists('gmake')
-        let g:make = 'gmake'
+let OSTYPE = system('uname')
+if OSTYPE == "FreeBSD\n"
+  let g:make = 'gmake'
+else
+  let g:make = 'make'
 endif
 Plug 'Shougo/vimproc.vim', {'do': g:make}
 
