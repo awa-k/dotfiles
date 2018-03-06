@@ -3,8 +3,10 @@ export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:${HOME}/bin
 export ZSH_FUNCTIONS=/usr/local/share/zsh/site-functions
 
 # pager
-export PAGER=/usr/local/bin/lv
-export LV='-c -Ou8'
+if which lv > /dev/null; then
+    export PAGER=/usr/local/bin/lv
+    export LV='-c -Ou8'
+fi
 
 # ls
 export LSCOLORS=Gxfxcxdxbxegedabagacad
@@ -19,7 +21,7 @@ if [ -f /Applications/MacVim.app/Contents/MacOS/Vim ]; then
     alias ctags='/Applications/MacVim.app/Contents/MacOS/ctags'
 fi
 
-# neovim
+# neovim override macvim
 if which nvim > /dev/null; then
     export EDITOR=/usr/local/bin/nvim
     alias vi='env LANG=ja_JP.UTF-8 /usr/local/bin/nvim'
@@ -55,7 +57,8 @@ export JAVA_HOME=`/usr/libexec/java_home`
     source ${ZSH_FUNCTIONS}/_docker-machine
 
 # PATH for the Google Cloud SDK, update manualliy
-export PATH=${PATH}:${HOME}/google-cloud-sdk/bin
+[ -f ${HOME}/google-colud-sdk/bin/gcloud ] && \
+    export PATH=${PATH}:${HOME}/google-cloud-sdk/bin
 
 # The next line enables shell command completion for gcloud.
 [ -f ${HOME}/google-cloud-sdk/completion.zsh.inc ] && \
