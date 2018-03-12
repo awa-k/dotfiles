@@ -57,7 +57,7 @@ export JAVA_HOME=`/usr/libexec/java_home`
     source ${ZSH_FUNCTIONS}/_docker-machine
 
 # PATH for the Google Cloud SDK, update manualliy
-[ -f ${HOME}/google-colud-sdk/bin/gcloud ] && \
+[ -f ${HOME}/google-cloud-sdk/bin/gcloud ] && \
     export PATH=${PATH}:${HOME}/google-cloud-sdk/bin
 
 # The next line enables shell command completion for gcloud.
