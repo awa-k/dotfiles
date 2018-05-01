@@ -81,6 +81,9 @@ if which ndenv > /dev/null; then eval "$(ndenv init -)"; fi
 export GOPATH=${HOME}/codes/go
 export PATH=${PATH}:${GOPATH}/bin
 
+[ -f /opt/puppetlabs/bin/puppet ] && \
+    export PATH=${PATH}:/opt/puppetlabs/bin
+
 # custom function
 function chpwd() { ls }
 zstyle ':completion:*' list-colors 'di=34' 'ln=35' 'so=32' 'ex=31' 'bd=46;34' 'cd=43;34'
