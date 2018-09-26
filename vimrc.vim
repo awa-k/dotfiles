@@ -46,7 +46,7 @@ Plug 'majutsushi/tagbar'
 Plug 'scrooloose/syntastic'
 Plug 'Yggdroot/indentLine'
 Plug 'avelino/vim-bootstrap-updater'
-Plug 'sheerun/vim-polyglot'
+"Plug 'sheerun/vim-polyglot'
 if isdirectory('/usr/local/opt/fzf')
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
 else
@@ -95,6 +95,8 @@ Plug 'vim-erlang/vim-erlang-tags'
 "" Go Lang Bundle
 Plug 'fatih/vim-go', {'do': ':GoInstallBinaries'}
 
+" move down
+Plug 'sheerun/vim-polyglot'
 
 "*****************************************************************************
 "*****************************************************************************
@@ -494,6 +496,9 @@ let g:go_highlight_space_tab_error = 0
 let g:go_highlight_array_whitespace_error = 0
 let g:go_highlight_trailing_whitespace_error = 0
 let g:go_highlight_extra_types = 1
+
+" disable go on polyglot
+"let g:polyglot_disabled = ['go']
 
 autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4 softtabstop=4
 
