@@ -33,6 +33,9 @@ fi
 [ -f /usr/local/opt/curl/bin/curl ] && \
     alias curl='/usr/local/opt/curl/bin/curl'
 
+[ -f /usr/local/opt/curl-openssl/bin/curl ] && \
+    alias curl='/usr/local/opt/curl-openssl/bin/curl'
+
 # java
 export JAVA_HOME=`/usr/libexec/java_home`
 
